@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8"> 
+    <title>Word Guess Game</title>
+  </head>
+<body>
+        
+      
+
+        <div id="game">
+            <h1>Press any key to get started!</h1>
+ 
+        </div> 
+    
+
+        
+
+  <!-- <script type="text/javascript" scr="assets/javascript/game.js"></script> -->
+        <script type="text/javascript">       
+  
+//   <button onclick="document.getElementById("game").innerHTML = >Start Game </button>
+//   <button onclick="this.innerHTML = Let's Play! Guess the word!" > Start Game </button>
+//   <button type="button" id="startBtn" onclick="initialize()">START</button>
+ 
+    document.getElementById("game").addEventListener('onkeypress', startGame);
+
+        function startGame(){
+             document.write( "Let's Play! Guess the word!");
+             document.getElementById("game").innerHTML = "Guess the word!";
+           
+            }
+
+       
+
+           
+            var userGuess;
+    var wins;
+    var losses;
+    var guessesRemaining;
+    var remainingLetters;
+
+    var words = ["guess", "arch", "class", "test"];
+
+    document.onkeyup = function(event) {
+
+    var chosenWord = words[Math.floor(Math.random() * words.length)];
+    console.log(chosenWord);
+
+var answerArr = [];
+    for (var i=0; i < chosenWord.length; i++){
+        answerArr[i] = "_ ";
+        document.write(answerArr[i]);
+        console.log(answerArr[i]);
+    }
+    }
+
+
+    
+     
+    //     var userGuess = event.key;
+
+    //   };
+
+
+    
+    
+
+    //     }
+
+
+
+    // <!-- var game = {
+    //     guesses: '',
+    //     guessRemaining: '',
+    //     remainingLetters: ' ',
+    //     wordList: ["guess", "class", "test"]
+    // }; -->
+
+
+    
+    
+    
+    
+    // var remainingLetters = chosenWord.length;
+    
+    // console.log("test");
+
+
+    // document.onkeyup = function(event) {
+    //     var userGuess = event.key;
+    //   };
+
+
+    // while (remainingLetters > 0) {
+    //     document.write(answerArr[i]);
+    
+    // };
+    
+    // var guess = prompt("guess a letter");
+
+
+    // if  (guess.length !==1) {
+    //     alert("Please enter a single letter");
+    //  }// else if (guess === null) {
+    // //     break; }
+    //     else  {
+    //     for (var j=0; j<word.length; j++) {
+    //         if (word[j] === guess) {
+    //             answerArr[j] = guess;
+    //             remainingLetters--;
+    //         }
+    //     }
+       
+    // }
+    
+    
+    
+    // alert(answerArr.join(""));
+    // alert("good job. the answer was " + word);
+    
+    // game.check = function () {
+    //     var checkLetter = function(answer, letter) {
+    //         var position;
+    //         var result = false;
+    //         position = answer.indexOf(letter);
+    
+    //         for (var i=0; i<number; i++) {
+    //             position = myString.substring(0, position) + myString.substring(position + 1)
+    //         }
+    //         return result;
+    //     }
+    // }
+</script>
+</body>
+</html>
