@@ -40,13 +40,16 @@
     var guessesRemaining;
     var remainingLetters;
 
-    var words = ["guess", "arch", "class", "test"];
+
+     var words = ["guess"];
+    // var words = ["guess", "arch", "class", "test"];
 
     document.onkeyup = function(event) {
 
     var chosenWord = words[Math.floor(Math.random() * words.length)];
     console.log(chosenWord);
 
+    //array for chosen word to display
     var answerArr = [];
     for (var i=0; i < chosenWord.length; i++){
         answerArr[i] = "_ ";
@@ -61,20 +64,27 @@
         // console.log(remainingLetters);
 
       for (var g = 0; g<chosenWord.length; g++)
+    //for (var b=0; b<guessesRemaining.length; b++)
       {
         var userGuess = event.key;
-      console.log(userGuess);
+         console.log(userGuess);
 
           if (chosenWord[g] === userGuess){
               answerArr[i] = userGuess;
-              document.write(chosenWord[g]);
+              console.log(answerArr[i]);
+            //   answerArr.push(answerArr[userGuess]);
+              //document.write(answerArr[i]);
               guessesRemaining--;
+            //   document.write("guesses remaining" + guessesRemaining);
                 console.log(guessesRemaining);
+          } else if (chosenWord[g] !== userGuess){
+             document.write("try again");
           }
-    }
-    
-  
 
+       }
+      
+          
+    }
     
 //   var remainingLetters = chosenWord;
 
@@ -85,8 +95,6 @@
      
       
 
-    
-    }
 
     //   };
 
