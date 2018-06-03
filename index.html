@@ -47,18 +47,46 @@
     var chosenWord = words[Math.floor(Math.random() * words.length)];
     console.log(chosenWord);
 
-var answerArr = [];
+    var answerArr = [];
     for (var i=0; i < chosenWord.length; i++){
         answerArr[i] = "_ ";
         document.write(answerArr[i]);
-        console.log(answerArr[i]);
-    }
-    }
 
+          
+      }
+      guessesRemaining = chosenWord.length;
+        document.write("Number of guesses: " + guessesRemaining);
+      
+        // remainingLetters = chosenWord.length;
+        // console.log(remainingLetters);
+
+      for (var g = 0; g<chosenWord.length; g++)
+      {
+        var userGuess = event.key;
+      console.log(userGuess);
+
+          if (chosenWord[g] === userGuess){
+              answerArr[i] = userGuess;
+              document.write(chosenWord[g]);
+              guessesRemaining--;
+                console.log(guessesRemaining);
+          }
+    }
+    
+  
 
     
+//   var remainingLetters = chosenWord;
+
+//   while (remainingLetters > 0) {
+//          document.write(answerArr[i]);
+//     };
+    
      
-    //     var userGuess = event.key;
+      
+
+    
+    }
 
     //   };
 
@@ -81,8 +109,7 @@ var answerArr = [];
     
     
     
-    
-    // var remainingLetters = chosenWord.length;
+
     
     // console.log("test");
 
@@ -92,10 +119,7 @@ var answerArr = [];
     //   };
 
 
-    // while (remainingLetters > 0) {
-    //     document.write(answerArr[i]);
-    
-    // };
+   
     
     // var guess = prompt("guess a letter");
 
