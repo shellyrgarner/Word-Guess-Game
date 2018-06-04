@@ -12,9 +12,8 @@
     <div id="right"></div>
     <div id="wrong"></div>
     <div id="gl"></div>
-
-    
-<p id="demo"></p>
+    <div id="wins"></div>
+    <div id="loss"></div>
   
     <script>
 
@@ -23,9 +22,12 @@
  var lettersLeft = 0;
  var rightLetters = [];
  var wrongLetters = [];
- var guessesRemaining = 6;
  var chosenWordBlanks = []; 
  var chosenWord;
+ var guessesRemaining = 6;
+ var lossCounter = 0;
+ var winsCounter = 0;
+ var guessesCorrect = 0;
  
 function startGame() {   
 
@@ -35,11 +37,14 @@ function startGame() {
     letters = chosenWord.split('');   
     lettersLeft = letters.length;
 
-    console.log(chosenWord);
-    console.log(letters);
-    console.log(lettersLeft);    
+     wrongLetters = [];
+     chosenWordBlanks = []; 
+     guessesRemaining = 6;
+     guessesCorrect = 0;    
 
-    var chosenWordBlanks = []; 
+      console.log(chosenWord);
+      console.log(letters);
+      console.log(lettersLeft);
 
     for (var i=0; i < lettersLeft; i++) {
 
@@ -50,6 +55,8 @@ function startGame() {
             
     }
     document.getElementById('word').innerHTML = chosenWordBlanks.join(' ');
+    document.getElementById('gl').innerHTML = "Guesses Remaining: " + guessesRemaining;
+    document.getElementById('wrong').innerHTML = wrongLetters;
     console.log(chosenWordBlanks);
 }
 
@@ -60,12 +67,15 @@ function letter(userInput) {
             {
                 if (letters[i] === userInput)
                 {
+                    guessesCorrect++;                   
                     chosenWordBlanks[i] = userInput;
                     //rightLetters[i] = userInput;
                     document.getElementById('word').innerHTML = chosenWordBlanks.join(' ');
                     
                  } 
             }console.log(rightLetters);
+            console.log(lettersLeft);
+            console.log(guessesCorrect);
         } 
         else { 
             guessesRemaining--;
@@ -75,13 +85,38 @@ function letter(userInput) {
             //alert("try again");
             console.log('Wrong Letters = ' + wrongLetters);
             console.log('Guesses Remaining = ' + guessesRemaining);
+            console.log(lettersLeft);
         }
 }   
+function winOrNah() {
+    if (guessesCorrect === lettersLeft) {
+        winsCounter++;
+        console.log(chosenWordBlanks);
+        document.getElementById('wins').innerHTML = "Your wins: " + winsCounter;
+        alert("Winner, Winner!");
+        startOver();
+    }
+    else if (guessesRemaining === 0) {
+        lossCounter++;
+        document.getElementById('loss').innerHTML = "Your losses: " + lossCounter;
+        alert("Better luck next time!");
+        startOver();
+    }    
+}      
+function startOver(){
 
+    chosenWord = wordsToChooseFrom[Math.floor(Math.random() * wordsToChooseFrom.length)];
+    letters = chosenWord.split('');   
+    lettersLeft = letters.length; 
 
+     wrongLetters = [];
+     chosenWordBlanks = []; 
+     guessesRemaining = 6;
+     guessesCorrect = 0;
+    //userInput = 0;
 
- 
-       
+    startGame();
+}
       
 startGame();
 
@@ -91,7 +126,7 @@ document.onkeyup = function(event) {
        var userInput = String.fromCharCode(event.keyCode).toLowerCase();
 
        letter(userInput);
-     
+       winOrNah();
 }
 
     

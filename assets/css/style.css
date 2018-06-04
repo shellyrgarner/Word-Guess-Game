@@ -1,0 +1,24 @@
+body {
+    background: #008B8B;
+}
+
+header {
+    text-align: center;
+    border: double;
+    
+    /* height:
+    width:  */
+    margin: 10px;
+    border-bottom-right-radius: 25px;
+    border-bottom-left-radius: 25px;
+    padding: 10px;
+
+}
+
+h1 {
+    font-size: 30px;
+}
+
+h4 {
+    font-size: 20px;
+}

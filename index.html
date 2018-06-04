@@ -1,136 +1,143 @@
 <!DOCTYPE html>
 <html lang="en-us">
-  <head>
+
+<head>
     <meta charset="UTF-8">
     <title>Word Guess Game</title>
-  </head>
-  <body>
 
-    <p id="score"></p>
-    <p id="game">Press Any Key To Get Started</p>
+    <link rel="stylesheet" type="text/css" href="assets/css/reset.css">
+    <link rel="stylesheet" type="text/css" href="assets/css/style.css">
+</head>
+
+<body>
+
+    <header>
+        <h1>Word Guessing Game</h1>
+        <h4>Theme: </h4>
+    </header>
+
+    <div id="game">Press Any Key To Get Started</div>
     <div id="word"></div>
     <div id="right"></div>
     <div id="wrong"></div>
     <div id="gl"></div>
     <div id="wins"></div>
     <div id="loss"></div>
-  
+
     <script>
 
- var wordsToChooseFrom = ["guess", "cat", "four"];
- var letters = [];
- var lettersLeft = 0;
- var rightLetters = [];
- var wrongLetters = [];
- var chosenWordBlanks = []; 
- var chosenWord;
- var guessesRemaining = 6;
- var lossCounter = 0;
- var winsCounter = 0;
- var guessesCorrect = 0;
- 
-function startGame() {   
+        var wordsToChooseFrom = ["guess", "cat", "four", "skip", "dog", "life", "food", "sun"];
+        var letters = [];
+        var lettersLeft = 0;
+        var rightLetters = [];
+        var wrongLetters = [];
+        var chosenWordBlanks = [];
+        var chosenWord;
+        var guessesRemaining = 6;
+        var lossCounter = 0;
+        var winsCounter = 0;
+        var guessesCorrect = 0;
 
-    //document.querySelector("#game").innerHTML = "Guess the word!";
+        function startGame() {
 
-    chosenWord = wordsToChooseFrom[Math.floor(Math.random() * wordsToChooseFrom.length)];
-    letters = chosenWord.split('');   
-    lettersLeft = letters.length;
+            //document.querySelector("#game").innerHTML = "Guess the word!";
 
-     wrongLetters = [];
-     chosenWordBlanks = []; 
-     guessesRemaining = 6;
-     guessesCorrect = 0;    
+            chosenWord = wordsToChooseFrom[Math.floor(Math.random() * wordsToChooseFrom.length)];
+            letters = chosenWord.split('');
+            lettersLeft = letters.length;
 
-      console.log(chosenWord);
-      console.log(letters);
-      console.log(lettersLeft);
+            wrongLetters = [];
+            chosenWordBlanks = [];
+            guessesRemaining = 6;
+            guessesCorrect = 0;
 
-    for (var i=0; i < lettersLeft; i++) {
-
-        //chosenWordBlanks[i] = "_ ";
-        chosenWordBlanks.push('_');
-        //document.getElementById('word').innerHTML = chosenWordBlanks[i].repeat(lettersLeft.length);  
-        document.getElementById('word').innerHTML = chosenWordBlanks;      
-            
-    }
-    document.getElementById('word').innerHTML = chosenWordBlanks.join(' ');
-    document.getElementById('gl').innerHTML = "Guesses Remaining: " + guessesRemaining;
-    document.getElementById('wrong').innerHTML = wrongLetters;
-    console.log(chosenWordBlanks);
-}
-
-function letter(userInput) {
-     if (chosenWord.indexOf(userInput) > -1)
-        {
-            for (var i=0; i<lettersLeft; i++)
-            {
-                if (letters[i] === userInput)
-                {
-                    guessesCorrect++;                   
-                    chosenWordBlanks[i] = userInput;
-                    //rightLetters[i] = userInput;
-                    document.getElementById('word').innerHTML = chosenWordBlanks.join(' ');
-                    
-                 } 
-            }console.log(rightLetters);
+            console.log(chosenWord);
+            console.log(letters);
             console.log(lettersLeft);
-            console.log(guessesCorrect);
-        } 
-        else { 
-            guessesRemaining--;
-            wrongLetters.push(userInput);
-            document.getElementById('wrong').innerHTML = wrongLetters;
+
+            for (var i = 0; i < lettersLeft; i++) {
+
+                //chosenWordBlanks[i] = "_ ";
+                chosenWordBlanks.push('_');
+                //document.getElementById('word').innerHTML = chosenWordBlanks[i].repeat(lettersLeft.length);  
+                document.getElementById('word').innerHTML = chosenWordBlanks;
+
+            }
+            document.getElementById('word').innerHTML = chosenWordBlanks.join(' ');
             document.getElementById('gl').innerHTML = "Guesses Remaining: " + guessesRemaining;
-            //alert("try again");
-            console.log('Wrong Letters = ' + wrongLetters);
-            console.log('Guesses Remaining = ' + guessesRemaining);
-            console.log(lettersLeft);
+            document.getElementById('wrong').innerHTML = wrongLetters;
+            console.log(chosenWordBlanks);
         }
-}   
-function winOrNah() {
-    if (guessesCorrect === lettersLeft) {
-        winsCounter++;
-        console.log(chosenWordBlanks);
-        document.getElementById('wins').innerHTML = "Your wins: " + winsCounter;
-        alert("Winner, Winner!");
-        startOver();
-    }
-    else if (guessesRemaining === 0) {
-        lossCounter++;
-        document.getElementById('loss').innerHTML = "Your losses: " + lossCounter;
-        alert("Better luck next time!");
-        startOver();
-    }    
-}      
-function startOver(){
 
-    chosenWord = wordsToChooseFrom[Math.floor(Math.random() * wordsToChooseFrom.length)];
-    letters = chosenWord.split('');   
-    lettersLeft = letters.length; 
+        function letter(userInput) {
+            if (chosenWord.indexOf(userInput) > -1) {
+                for (var i = 0; i < lettersLeft; i++) {
+                    if (letters[i] === userInput) {
+                        guessesCorrect++;
+                        chosenWordBlanks[i] = userInput;
+                        //rightLetters[i] = userInput;
+                        document.getElementById('word').innerHTML = chosenWordBlanks.join(' ');
 
-     wrongLetters = [];
-     chosenWordBlanks = []; 
-     guessesRemaining = 6;
-     guessesCorrect = 0;
-    //userInput = 0;
+                    }
+                } console.log(rightLetters);
+                console.log(lettersLeft);
+                console.log(guessesCorrect);
+            }
+            else {
+                guessesRemaining--;
+                wrongLetters.push(userInput);
+                document.getElementById('wrong').innerHTML = wrongLetters;
+                document.getElementById('gl').innerHTML = "Guesses Remaining: " + guessesRemaining;
+                //alert("try again");
+                console.log('Wrong Letters = ' + wrongLetters);
+                console.log('Guesses Remaining = ' + guessesRemaining);
+                console.log(lettersLeft);
+            }
+        }
+        function winOrNah() {
+            if (guessesCorrect === lettersLeft) {
+                winsCounter++;
+                console.log(chosenWordBlanks);
+                document.getElementById('wins').innerHTML = "Your wins: " + winsCounter;
+                alert("Winner, Winner!");
+                startOver();
+            }
+            else if (guessesRemaining === 0) {
+                lossCounter++;
+                document.getElementById('loss').innerHTML = "Your losses: " + lossCounter;
+                alert("Better luck next time!");
+                startOver();
+            }
+        }
+        function startOver() {
 
-    startGame();
-}
-      
-startGame();
+            chosenWord = wordsToChooseFrom[Math.floor(Math.random() * wordsToChooseFrom.length)];
+            letters = chosenWord.split('');
+            lettersLeft = letters.length;
 
-document.onkeyup = function(event) {
-       
-       var keyCode = event.keyCode;
-       var userInput = String.fromCharCode(event.keyCode).toLowerCase();
+            wrongLetters = [];
+            chosenWordBlanks = [];
+            guessesRemaining = 6;
+            guessesCorrect = 0;
+            //userInput = 0;
 
-       letter(userInput);
-       winOrNah();
-}      
-        
-  
+            startGame();
+        }
+
+        startGame();
+
+        document.onkeyup = function (event) {
+
+            var keyCode = event.keyCode;
+            var userInput = String.fromCharCode(event.keyCode).toLowerCase();
+
+            letter(userInput);
+            winOrNah();
+        }
+
+
     </script>
-    
-  </body>
+
+</body>
+
 </html>
