@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en-us">
+  <head>
+    <meta charset="UTF-8">
+    <title>Word Guess Game</title>
+  </head>
+  <body>
+
+    <p id="score"></p>
+    <p id="game">Press Any Key To Get Started</p>
+    <div id="word"></div>
+    <div id="right"></div>
+    <div id="wrong"></div>
+    <div id="gl"></div>
+
+    
+<p id="demo"></p>
+  
+    <script>
+
+ var wordsToChooseFrom = ["guess", "cat", "four"];
+ var letters = [];
+ var lettersLeft = 0;
+ var rightLetters = [];
+ var wrongLetters = [];
+ var guessesRemaining = 6;
+ 
+ 
+
+     
+     var chosenWord = wordsToChooseFrom[Math.floor(Math.random() * wordsToChooseFrom.length)];
+     letters = chosenWord.split('');   
+     lettersLeft = letters.length;
+
+      
+      console.log(chosenWord);
+      console.log(letters);
+      console.log(lettersLeft);
+
+
+    document.onkeyup = function(event) {
+       
+        var keyCode = event.keyCode;
+        var userInput = String.fromCharCode(event.keyCode).toLowerCase();
+        
+       
+        if (chosenWord.indexOf(userInput) > -1)
+        {
+            for (var i=0; i<lettersLeft; i++)
+            {
+                if (letters[i] === userInput)
+                {
+                    rightLetters[i] = userInput;
+                    document.getElementById('right').innerHTML = rightLetters.join(' ');
+                    
+                 } 
+            }console.log(rightLetters);
+        } 
+        else { 
+            guessesRemaining--;
+            wrongLetters.push(userInput);
+            document.getElementById('wrong').innerHTML = wrongLetters;
+            document.getElementById('gl').innerHTML = "Guesses Remaining: " + guessesRemaining;
+            //alert("try again");
+            console.log('Wrong Letters = ' + wrongLetters);
+            console.log('Guesses Remaining = ' + guessesRemaining);
+        }
+    }
+        
+        
+       
+      
+
+
+
+    </script>
+    
+  </body>
+</html>
