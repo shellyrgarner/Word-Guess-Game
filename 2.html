@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en-us">
+  <head>
+    <meta charset="UTF-8">
+    <title>Word Guess Game</title>
+  </head>
+  <body>
+
+    <p id="score"></p>
+    <p id="game">Press Any Key To Get Started</p>
+    <div id="word"></div>
+    <span id="input"></span>
+  
+    <script type="text/javascript"> 
+
+
+
+// FUNCTIONS
+    // ==============================================================================
+
+    // Function to render questions.
+    // function renderQuestion() {
+    //   // If there are still more questions, render the next one.
+    //   if (questionIndex <= (questions.length - 1)) {
+    //     document.querySelector("#question").innerHTML = questions[questionIndex].q;
+    //   }
+    //   // If there aren't, render the end game screen.
+    //   else {
+    //     document.querySelector("#question").innerHTML = "Game Over!";
+    //     document.querySelector("#score").innerHTML = "Final Score: " + score + " out of " + questions.length;
+    //   }
+    // }
+
+    // Function that updates the score...
+    // function updateScore() {
+    //   document.querySelector("#score").innerHTML = "Score: " + score;
+    // }
+
+
+    // MAIN PROCESS
+    // ==============================================================================
+
+    // Calling functions to start the game.
+    // renderQuestion();
+    // updateScore();
+
+var wordsToChooseFrom = ["guess", "calendar", "keyboard"];
+      
+      var wordsIndex = 0;
+      var score = 0;
+      var chosenWordArr = [];
+      var attempts = 10;
+      var wordToGuess;
+
+
+      function startGame() {
+
+          document.onkeyup = function(event) {
+
+              document.querySelector("#game").innerHTML = "Guess the word!";
+
+               var chosenWord = wordsToChooseFrom[Math.floor(Math.random() * wordsToChooseFrom.length)];
+
+               for (var i=0; i < chosenWord.length; i++) {
+              // wordToGuess += chosenWordArr[i] = "_ ";
+              chosenWordArr[i] = "_ ";
+                //chosenWordArr[i] = wordToGuess;
+                // document.write(chosenWordArr[i]);   
+               //fieldNameElement.textContent = chosenWordArr[i]
+              document.getElementById('word').innerHTML = chosenWordArr[i].repeat(chosenWord.length);   
+               //document.querySelector("#word").innerHTML =  chosenWordArr[i];  
+                }  
+               
+        }
+
+      }
+
+      
+      
+      startGame();
+         
+
+
+ </script>
+</body>
+</html>

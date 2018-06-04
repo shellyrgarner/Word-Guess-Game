@@ -37,7 +37,7 @@
             var userGuess;
     var wins;
     var losses;
-    var guessesRemaining;
+    var guessesRemaining = 0;
     var remainingLetters;
 
 
@@ -58,33 +58,63 @@
           
       }
       guessesRemaining = chosenWord.length;
-        document.write("Number of guesses: " + guessesRemaining);
-      
+        //document.write("Number of guesses: " + guessesRemaining);
+
+        // while (guessesRemaining < 3) {
         // remainingLetters = chosenWord.length;
         // console.log(remainingLetters);
 
-      for (var g = 0; g<chosenWord.length; g++)
+    //   for (var g = 0; g<chosenWord.length; g++)
+    //for (var g = 0; g<3; g++)
     //for (var b=0; b<guessesRemaining.length; b++)
-      {
+     // {
         var userGuess = event.key;
          console.log(userGuess);
 
-          if (chosenWord[g] === userGuess){
-              answerArr[i] = userGuess;
-              console.log(answerArr[i]);
-            //   answerArr.push(answerArr[userGuess]);
-              //document.write(answerArr[i]);
-              guessesRemaining--;
-            //   document.write("guesses remaining" + guessesRemaining);
-                console.log(guessesRemaining);
-          } else if (chosenWord[g] !== userGuess){
-             document.write("try again");
-          }
+// if(words.indexOf(userGuess) < 0){
+//     alert("try again");
+//     guessesRemaining--;
+//     console.log(userGuess);
+//     //console.log(guessRemaining);
+//     console.log(indexOf(userGuess));
+// } else {
+//     for (i = 0; i<words.length; i++){
+//     if (words[i] === userGuess){
+//         answerArr[i] = userGuess;
+//         console.log(userGuess);
+//     }
+// }}
 
-       }
-      
-          
+if(chosenWord[i] !== userGuess){
+    alert("try again");
+    guessesRemaining--;
+    console.log(userGuess);
+    console.log(chosenWord[i]);
+    //console.log(guessRemaining);
+    //console.log(indexOf(userGuess));
+} else {
+    for (i = 0; i<chosenWord.length; i++){
+    if (chosenWord[i] === userGuess){
+        answerArr[i] = userGuess;
+        console.log(userGuess);
     }
+}}
+    //       if (chosenWord[g] === userGuess){
+    //           userGuess = answerArr[i].join();
+    //           console.log(answerArr[i]);
+    //         //   answerArr.push(answerArr[userGuess]);
+    //           //document.write(answerArr[i]);
+    //           guessesRemaining--;
+    //         //   document.write("guesses remaining" + guessesRemaining);
+    //             console.log(guessesRemaining);
+    //       } else if (chosenWord[g] !== userGuess){
+    //          document.write("try again");
+    //       }
+
+       //}
+    }
+          
+    //}
     
 //   var remainingLetters = chosenWord;
 
