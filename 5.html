@@ -27,7 +27,10 @@
  
  
 
-     
+     function startGame() {
+
+        document.querySelector("#game").innerHTML = "Guess the word!";
+
      var chosenWord = wordsToChooseFrom[Math.floor(Math.random() * wordsToChooseFrom.length)];
      letters = chosenWord.split('');   
      lettersLeft = letters.length;
@@ -36,6 +39,18 @@
       console.log(chosenWord);
       console.log(letters);
       console.log(lettersLeft);
+      
+      var chosenWordArr = [];
+
+          for (var i=0; i < lettersLeft.length; i++) {
+              // wordToGuess += chosenWordArr[i] = "_ ";
+              chosenWordArr[i] = "_ ";
+   
+              document.getElementById('word').innerHTML = chosenWordArr[i].repeat(lettersLeft.length);   
+      
+                }  
+
+    }
 
 
     document.onkeyup = function(event) {
@@ -43,6 +58,7 @@
         var keyCode = event.keyCode;
         var userInput = String.fromCharCode(event.keyCode).toLowerCase();
         
+    
        
         if (chosenWord.indexOf(userInput) > -1)
         {
@@ -65,8 +81,7 @@
             console.log('Wrong Letters = ' + wrongLetters);
             console.log('Guesses Remaining = ' + guessesRemaining);
         }
-    }
-        
+        }   
         
        
       
