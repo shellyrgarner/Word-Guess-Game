@@ -1,24 +1,123 @@
 body {
-    background: #008B8B;
+    background: #000000;
+    color: whitesmoke;
+    /* text-align: right; */
 }
 
 header {
     text-align: center;
     border: double;
-    
-    /* height:
-    width:  */
+    /* border-radius: 25px; */
+    font-family: Arial, Helvetica, sans-serif;
     margin: 10px;
     border-bottom-right-radius: 25px;
     border-bottom-left-radius: 25px;
     padding: 10px;
+    margin-bottom: 15px;
 
+}
+
+#game, #word, #right, #wrong, #gl, #wins, #loss {
+    font-family: Arial, Helvetica, sans-serif;
+    margin-top: 15px;
+}
+
+#gl{
+    margin-top: 25px;
 }
 
 h1 {
     font-size: 30px;
+    margin-bottom: 15px;
+
 }
 
-h4 {
+/* h5 {
     font-size: 20px;
+} */
+
+/* .col-border {
+    border-radius: 25px;
+    top: 0;
+    bottom: 0;
+} */
+
+/* .center {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+} */
+
+/* .img1 {
+    width: 20px;
+    float: left;
+    height: 20px;
 }
+.img1 {
+    width: 20px;
+    height: 20px;
+    float: right;
+} */
+
+.container { 
+    /* box-sizing: border-box; */
+     text-align:center; 
+     border: double; 
+     border-radius: 25px; 
+    /* border-top-right-radius: 25px; */
+    /* border-top-left-radius: 25px; */
+     margin-left: 50 px; 
+     padding: 20px; 
+     margin-top: 30px;
+ } 
+
+ 
+ /* .img { */
+    
+     /* justify-self: center; */
+    /* float:right;   */
+   
+    /* border-radius: 8px; */
+    /* max-width: 50%; */
+    /* height: auto; */
+    /* margin-left: auto; */
+    /* margin-right: auto; */
+    /* display: block; */
+    /* padding-right: 450px; */
+
+/* }  */
+
+ /* .game-area { */
+  /* float: right; */
+     /* justify-self:center; */
+     /* float: right;   */
+    /* grid-area: right; */
+     /* text-align: center;   */
+     /* width: 450px; */
+     /* padding: 30px; */
+    /* padding: 250px; */
+     /* padding-right: 250px;  */
+    /* padding-left: 250px;  */
+    /* padding-top: 100px; */
+     /* padding-bottom: 250px;   */
+    /* border: double; */
+     /* margin-left: 50px;  */
+    /* margin-left: 15px; */
+    /* border-radius: 25px;  */
+    /* border-bottom-left-radius: 25px; */
+    /* border- */
+    /* padding: 10px; */
+
+/* } 
+
+/* #borderimg { */
+    /* border: 10px solid transparent; */
+    /* border-width: 25px 30px 10px 20px; */
+    /* border-image: url("../images/instruments.jpg") ; */
+    /* border-image-slice: 20; */
+    /* border-image-repeat: round; */
+    /* -webkit-border-image: url("../images/instruments.jpg") 30 round; Safari 3.1-5 */
+    /* -o-border-image: url("assets/images/music_flash.gif") 30 round; Opera 11-12.1 */
+    /* border-image: url("assets/images/music_flash.gif") 30 round; */
+    
+/* } */

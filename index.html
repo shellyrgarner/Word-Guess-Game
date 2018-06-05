@@ -5,28 +5,42 @@
     <meta charset="UTF-8">
     <title>Word Guess Game</title>
 
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
     <link rel="stylesheet" type="text/css" href="assets/css/reset.css">
     <link rel="stylesheet" type="text/css" href="assets/css/style.css">
 </head>
 
 <body>
-
     <header>
-        <h1>Word Guessing Game</h1>
-        <h4>Theme: </h4>
+        <h1>Word Guess Game</h1>
+        <h5>Theme: Words Related To Music</h5>
     </header>
 
-    <div id="game">Press Any Key To Get Started</div>
-    <div id="word"></div>
-    <div id="right"></div>
-    <div id="wrong"></div>
-    <div id="gl"></div>
-    <div id="wins"></div>
-    <div id="loss"></div>
+    <div class="container">
+
+        <div class="row mt-5">
+            <div class="col-xs-12 col-sm-12 col-md-6">
+                <div class="bio text-secondary">
+                    <img class="img-fluid rounded" src="assets/images/music_flash.gif" alt="music" style="width:300px;height:300px;">
+                </div>
+            </div>
+            <div class="col-xs-12 col-sm-12 col-md-6 mt-5">
+                <div class="game-area" "bio text-secondary d-inline-block">
+                    <div id="game">Press Any Key To Get Started!</div>
+                    <div id="word"></div>
+                    <div id="right"></div>
+                    <div id="wrong"></div>
+                    <div id="gl"></div>
+                    <div id="wins"></div>
+                    <div id="loss"></div>
+                </div>
+            </div>
+        </div>
+    </div>
 
     <script>
 
-        var wordsToChooseFrom = ["guess", "cat", "four", "skip", "dog", "life", "food", "sun"];
+        var wordsToChooseFrom = ["songs", "skip", "aux", "record", "disc", "radio", "prince", "cd", "concert", "encore", "play", "beat", "dj", "guitar", "drums", "piano", "sax", "sing", "rap"];
         var letters = [];
         var lettersLeft = 0;
         var rightLetters = [];
