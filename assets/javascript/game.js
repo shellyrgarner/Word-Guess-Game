@@ -12,8 +12,6 @@ var guessesCorrect = 0;
 
 function startGame() {
 
-    //document.querySelector("#game").innerHTML = "Guess the word!";
-
     chosenWord = wordsToChooseFrom[Math.floor(Math.random() * wordsToChooseFrom.length)];
     letters = chosenWord.split('');
     lettersLeft = letters.length;
@@ -99,6 +97,8 @@ function startOver() {
 startGame();
 
 document.onkeyup = function (event) {
+
+    document.querySelector("#game").innerHTML = "Guess the word!";
 
     var keyCode = event.keyCode;
     var userInput = String.fromCharCode(event.keyCode).toLowerCase();
